@@ -395,12 +395,12 @@ but I would recommend a minimum of 4GB of RAM and 2 CPUs:
 ![Create a New Virtual Machine Step 3](./images/CreateVM3.png)
 
 Click `Forward` which will take you to the Storage specification.
-The values used here are up to you and your particular use case:
+The values used here are up to you and your particular use case:  
 ![Create a New Virtual Machine Step 4](./images/CreateVM4.png)
 
 Click `Forward` which will take you to the Final configuration screen.
 Here you can specify a `name` for the VM (here I chose ubuntutest), see the OS KVM thinks you are installing,
-Memory, CPU, and Storage specified.
+Memory, CPU, and Storage specified.  
 ![Create a New Virtual Machine Step 5](./images/CreateVM5.png)
 
 Before finishing, we want to make our new VM use the bridge network rather than
@@ -419,7 +419,8 @@ a bare metal machine. For this example, I chose "Try Ubuntu" to get a "live" ses
 > that I was on the correct network.
 In the screenshot below you can see that the machine has an IP of `192.168.5.190`,
 meaning it reached out through the network bridge to the network and got a DHCP lease from
-my local network router.
+my local network router.  
+
 ![Create a New Virtual Machine Step 7](./images/CreateVM7.png)
 
 ## Conclusion and Next Steps
