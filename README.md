@@ -1,10 +1,10 @@
-# Installing KVM on Ubuntu 20.04
+# Installing KVM on Ubuntu 20.04 or 22.04
 
-Notes on how to install KVM on Ubuntu 20.04
+Notes on how to install KVM on Ubuntu 20.04 or 22.04
 
-- [Installing KVM on Ubuntu 20.04](#installing-kvm-on-ubuntu-2004)
+- [Installing KVM on Ubuntu 20.04 or 22.04](#installling-kvm-on-ubuntu-2004-or-2204)
   - [Pre-Req's](#pre-reqs)
-    - [Install Ubuntu 20.04](#install-ubuntu-2004)
+    - [Install Ubuntu 20.04 or 22.04](#install-ubuntu-2004-or-2204)
     - [Update Ubuntu](#update-ubuntu)
     - [Optional, enable SSH](#optional-enable-ssh)
     - [Optional, install byobu](#optional-install-byobu)
@@ -23,9 +23,9 @@ Notes on how to install KVM on Ubuntu 20.04
 
 ## Pre-Req's
 
-### Install Ubuntu 20.04
+### Install Ubuntu 20.04 or 22.04
 
-Install Ubuntu 20.04, we will use Desktop version for this guide.  
+Install Ubuntu 20.04 or 22.04, we will use Desktop version for this guide.  
 During install choose "Normal installation",
 "Download updates while installing Ubuntu", and
 "Install third-party software for graphics and Wi-Fi
