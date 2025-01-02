@@ -427,7 +427,7 @@ my local network router.
 
 **That's it!** You now have a machine that can host VMs.  
 
-Let me know if you have any questions. I can be reached at [@IAmDanielV](https://twitter.com/IAmDanielV).
+Let me know if you have any questions. I can be reached at [@IAmDanielV](https://twitter.com/IAmDanielV) or [@iamdanielv.bsky.social](https://bsky.app/profile/iamdanielv.bsky.social).
 
 The performance of your VMs will vary depending on the host machine resources
 and number of VMs running.
