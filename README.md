@@ -2,7 +2,7 @@
 
 Notes on how to install KVM on Ubuntu 20.04 or 22.04
 
-- [Installing KVM on Ubuntu 20.04 or 22.04](#installling-kvm-on-ubuntu-2004-or-2204)
+- [Installing KVM on Ubuntu 20.04 or 22.04](#installing-kvm-on-ubuntu-2004-or-2204)
   - [Pre-Req's](#pre-reqs)
     - [Install Ubuntu 20.04 or 22.04](#install-ubuntu-2004-or-2204)
     - [Update Ubuntu](#update-ubuntu)
