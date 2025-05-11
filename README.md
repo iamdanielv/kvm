@@ -237,7 +237,8 @@ network:
       interfaces: [ eno1 ]
 ```
 
->Note: The netplan file is in `yaml` format - Spaces matter
+> [!TIP]
+> ⚠️ The netplan file is in `yaml` format - Spaces matter.
 
 ### Verify netplan config file
 
@@ -426,7 +427,7 @@ my local network router.
 
 ## Conclusion and Next Steps
 
-**That's it!** You now have a machine that can host VMs.  
+**That's it!** You now have a machine that can host VMs.
 
 Let me know if you have any questions. I can be reached at [@IAmDanielV](https://twitter.com/IAmDanielV) or [@iamdanielv.bsky.social](https://bsky.app/profile/iamdanielv.bsky.social).
 
