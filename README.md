@@ -125,7 +125,8 @@ INFO: /dev/kvm exists
 KVM acceleration can be used
 ```
 
-> Note: in the example above, my user name is `daniel` and my machine name is `kvmdemo`
+> [!NOTE]
+> In the example above, my user name is `daniel` and my machine name is `kvmdemo`
 
 The important bit is that it responded with:
 
@@ -237,7 +238,7 @@ network:
       interfaces: [ eno1 ]
 ```
 
-> [!TIP]
+> [!IMPORTANT]
 > ⚠️ The netplan file is in `yaml` format - Spaces matter.
 
 ### Verify netplan config file
@@ -245,7 +246,8 @@ network:
 In order to make sure that our network bridge is created
 successfully, we can run the netplan try command on the host machine:
 
-> Note: Do this while connected directly to the host machine, not remotely since the DHCP lease may give you a new IP address.
+> [!WARNING]
+> Do this while connected directly to the host machine, not remotely since the DHCP lease may give you a new IP address.
 
 ```shell
 sudo netplan try
@@ -302,8 +304,9 @@ the contents should be:
 </network>
 ```
 
->Note: The `name` can be anything you want, but the `bridge name=` **should match** what we setup in the netplan config file.
->In this example it is `breno1`
+> [!NOTE]
+> The `name` can be anything you want, but the `bridge name=` **should match** what we setup in the netplan config file.
+> In this example it is `breno1`
 
 We can now feed that configuration into virsh:
 
@@ -389,29 +392,35 @@ use the File chooser dialog to browse for the Ubuntu ISO.
 ![Create a New Virtual Machine Step 2b](./images/CreateVM2b.png)
 
 In my case I had the ISO in the `Downloads` folder
+
 ![Create a New Virtual Machine Step 2c](./images/CreateVM2c.png)
 
 Click `Forward` which will take you to the Memory and CPU Settings.
 The values used here are up to you and your particular use case,
 but I would recommend a minimum of 4GB of RAM and 2 CPUs:
+
 ![Create a New Virtual Machine Step 3](./images/CreateVM3.png)
 
 Click `Forward` which will take you to the Storage specification.
-The values used here are up to you and your particular use case:  
+The values used here are up to you and your particular use case:
+
 ![Create a New Virtual Machine Step 4](./images/CreateVM4.png)
 
 Click `Forward` which will take you to the Final configuration screen.
 Here you can specify a `name` for the VM (here I chose ubuntutest), see the OS KVM thinks you are installing,
 Memory, CPU, and Storage specified.  
+
 ![Create a New Virtual Machine Step 5](./images/CreateVM5.png)
 
 Before finishing, we want to make our new VM use the bridge network rather than
 the internal NAT network. We can change this by clicking on "Network selection"
 and choosing "Virtual network 'hostbridge': Bridge network":
+
 ![Create a New Virtual Machine Step 5b](./images/CreateVM5b.png)
 
 Click `Finish` and a new window called "ubuntutest on QEMU/KVM" will open. The VM will be initialized and act
 just like a physical machine. In this example, the ubuntu installer will start:
+
 ![Create a New Virtual Machine Step 6](./images/CreateVM6.png)
 
 From this point forward it is pretty much equivalent to installing on
@@ -419,6 +428,7 @@ a bare metal machine. For this example, I chose "Try Ubuntu" to get a "live" ses
 
 > Note: I opened a terminal once the "live" session started in order to verify
 > that I was on the correct network.
+
 In the screenshot below you can see that the machine has an IP of `192.168.5.190`,
 meaning it reached out through the network bridge to the network and got a DHCP lease from
 my local network router.  
