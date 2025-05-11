@@ -20,6 +20,7 @@ Notes on how to install KVM on Ubuntu 20.04, 22.04, or 24.04
   - [Use Virtual Machine Manager to check Network Bridge](#use-virtual-machine-manager-to-check-network-bridge)
   - [Use Virtual Machine Manager to Create a VM](#use-virtual-machine-manager-to-create-a-vm)
   - [Conclusion and Next Steps](#conclusion-and-next-steps)
+  - [Troubleshooting](#troubleshooting)
 
 ## Pre-Req's
 
@@ -431,3 +432,9 @@ Let me know if you have any questions. I can be reached at [@IAmDanielV](https:/
 
 The performance of your VMs will vary depending on the host machine resources
 and number of VMs running.
+
+## Troubleshooting
+
+- If the bridge isn't detected, verify `netplan` syntax and reboot.
+- Check `virsh net-list --all` for active networks.
+- Make sure `libvirt` and `qemu-kvm` are installed.
