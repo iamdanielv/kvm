@@ -2,6 +2,13 @@
 
 Notes on how to install KVM on Ubuntu 20.04, 22.04, or 24.04
 
+## Intro to KVM - **WHY** 🤔
+
+Kernel-based Virtual Machine (KVM) is a virtualization solution for Linux on x86 hardware.  Using KVM, you can run multiple virtual machines where each virtual machine has private virtualized hardware: a network card, disk, graphics adapter, etc.
+
+This guide provides a step-by-step walkthrough of installing and configuring KVM on a fresh Ubuntu Desktop installation.
+
+
 - [Installing KVM on Ubuntu 20.04, 22.04, or 24.04](#installing-kvm-on-ubuntu-2004-2204-or-2404)
   - [Pre-Req's](#pre-reqs)
     - [Install Ubuntu 20.04, 22.04, or 24.04](#install-ubuntu-2004-2204-or-2404)
