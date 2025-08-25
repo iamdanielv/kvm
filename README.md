@@ -85,10 +85,14 @@ sudo virsh net-start hostbridge
 ### Install Ubuntu 20.04, 22.04, or 24.04
 
 Install Ubuntu 20.04, 22.04, or 24.04, we will use Desktop version for this guide.
-During install choose "Normal installation",
-"Download updates while installing Ubuntu", and
-"Install third-party software for graphics and Wi-Fi
-hardware and additional media formats" to make sure we have all the necessary drivers.  
+During install choose:
+
+- Normal installation
+- Download updates while installing Ubuntu
+- Install third-party software for graphics and Wi-F
+hardware and additional media formats
+
+to make sure we have all the necessary drivers.
 
 This takes about 15 minutes, but depends on your Computer and Network Speed.
 
