@@ -8,7 +8,6 @@ Kernel-based Virtual Machine (KVM) is a virtualization solution for Linux on x86
 
 This guide provides a step-by-step walkthrough of installing and configuring KVM on a fresh Ubuntu Desktop installation.
 
-
 - [Installing KVM on Ubuntu 20.04, 22.04, or 24.04](#installing-kvm-on-ubuntu-2004-2204-or-2404)
   - [Pre-Req's](#pre-reqs)
     - [Install Ubuntu 20.04, 22.04, or 24.04](#install-ubuntu-2004-2204-or-2404)
@@ -74,8 +73,8 @@ cat <<-EOF > hostbridge.xml
 </network>
 EOF
 
-sudo virsh net-define hostbridge.xml
-sudo virsh net-autostart hostbridge
+sudo virsh net-define hostbridge.xml && \
+sudo virsh net-autostart hostbridge && \
 sudo virsh net-start hostbridge
 ```
 
@@ -102,17 +101,17 @@ Open a terminal and update your packages to the latest version, this step may ta
 a while. Follow the prompts from the command line tooling.  
 
 ```shell
-sudo apt update && sudo apt dist-upgrade
+sudo apt update && sudo apt dist-upgrade -y
 ```
 
 ### Optional, enable SSH
 
 You don't **need** SSH access to the machine, but it makes it easier to administer it remotely.
 
-Install OpenSSH, follow the prompts:
+Install OpenSSH, follow the prompts if it asks for information:
 
 ```shell
-sudo apt install openssh-server
+sudo apt install openssh-server -y
 ```
 
 Once Openssh is installed, you can get your IP with:
@@ -158,7 +157,7 @@ Byobu enables you to do just that, learn more at [byobu.org](https://www.byobu.o
 it can be installed with:
 
 ```shell
-sudo apt install byobu
+sudo apt install -y byobu
 ```
 
 ### Install CPU-Checker package and check for KVM feature
@@ -166,14 +165,7 @@ sudo apt install byobu
 Now that our machine is up to date, we can Install cpu-checker package:
 
 ```shell
-sudo apt install cpu-checker
-```
-
-Follow the prompts, and you should now have the kvm-ok application from the
-cpu-checker package. Run the kvm-ok application:
-
-```shell
-sudo kvm-ok
+sudo apt install -y cpu-checker && sudo kvm-ok
 ```
 
 If everything is setup properly, you should get something like:
@@ -202,7 +194,7 @@ Since we know that the current machine supports KVM, we can now install
 some tooling to make our life easier.
 
 ```shell
-sudo apt install qemu-kvm bridge-utils virt-manager
+sudo apt install -y qemu-kvm bridge-utils virt-manager
 ```
 
 The above command installs the following, and supporting tooling:
@@ -350,17 +342,13 @@ In order to use the bridge with KVM, we must configure the bridge with KVM.
 Create a file called `hostbridge.xml`, in the example we are creating it in the user's home folder
 
 ```shell
-nano ~/hostbridge.xml
-```
-
-the contents should be:
-
-```xml
+cat <<-EOF > ~/hostbridge.xml
 <network>
   <name>hostbridge</name>
   <forward mode='bridge'/>
   <bridge name='breno1'/>
 </network>
+EOF
 ```
 
 > [!NOTE]
@@ -370,26 +358,14 @@ the contents should be:
 We can now feed that configuration into virsh:
 
 ```shell
-sudo virsh net-define hostbridge.xml
+sudo virsh net-define hostbridge.xml && sudo virsh net-autostart hostbridge && sudo virsh net-start hostbridge
 ```
 
 it should respond with:
 
 ```shell
 Network hostbridge defined from hostbridge.xml
-```
-
-Now we can tell virsh to auto start the bridge and to start it up right now:
-
-```shell
-sudo virsh net-autostart hostbridge && sudo virsh net-start hostbridge
-```
-
-it should respond with something like:
-
-```shell
 Network hostbridge marked as autostarted
-
 Network hostbridge started
 ```
 
