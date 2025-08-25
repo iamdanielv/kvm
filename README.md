@@ -29,6 +29,58 @@ This guide provides a step-by-step walkthrough of installing and configuring KVM
   - [Conclusion and Next Steps](#conclusion-and-next-steps)
   - [Troubleshooting](#troubleshooting)
 
+<details>
+<summary>TL;DR 😎</summary>
+
+No time to read? For experienced users, the commands to get KVM up and running:
+
+```bash
+# Update and install necessary packages
+sudo apt update && sudo apt dist-upgrade -y
+sudo apt install -y qemu-kvm bridge-utils virt-manager cpu-checker
+
+# Check for KVM acceleration
+sudo kvm-ok
+
+# Get network interface name
+ip -c link
+
+# Create bridge configuration (replace eno1 with your interface)
+cat <<EOF | sudo tee /etc/netplan/01-network-manager-all.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eno1:
+      dhcp4: no
+      dhcp6: no
+  bridges:
+    breno1:
+      dhcp4: yes
+      dhcp6: no
+      interfaces: [ eno1 ]
+EOF
+
+# Apply network configuration
+sudo netplan try
+sudo netplan apply
+
+# Create KVM network bridge
+cat <<-EOF > hostbridge.xml
+<network>
+  <name>hostbridge</name>
+  <forward mode='bridge'/>
+  <bridge name='breno1'/>
+</network>
+EOF
+
+sudo virsh net-define hostbridge.xml
+sudo virsh net-autostart hostbridge
+sudo virsh net-start hostbridge
+```
+
+</details>
+
 ## Pre-Req's
 
 ### Install Ubuntu 20.04, 22.04, or 24.04
